@@ -7,13 +7,13 @@ Feature: Manage WP Cron events
     When I run `wp cron event run --all`
     Then STDOUT should contain:
       """
-      Success: Executed a total of
+      Success: Executed
       """
 
     When I run `wp cron event run --due-now`
     Then STDOUT should contain:
       """
-      Executed a total of 0 cron events
+      Executed 0 out of
       """
 
     When I run `wp cron event schedule wp_cli_test_event_1 now hourly`
@@ -35,5 +35,5 @@ Feature: Manage WP Cron events
       """
     And STDOUT should contain:
       """
-      Executed a total of 1 cron event
+      Executed 1 out of
       """
